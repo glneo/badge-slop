@@ -47,9 +47,7 @@ def convert_to_c_array(input_path, output_path, var_name, width, height):
         f.write('};\n\n')
         
         f.write(f'const lv_img_dsc_t {var_name} = {{\n')
-        f.write('  .header.cf = LV_IMG_CF_TRUE_COLOR,\n')
-        f.write('  .header.always_zero = 0,\n')
-        f.write('  .header.reserved = 0,\n')
+        f.write('  .header.cf = LV_COLOR_FORMAT_RGB565,\n')
         f.write(f'  .header.w = {width},\n')
         f.write(f'  .header.h = {height},\n')
         f.write(f'  .data_size = {width * height * 2},\n')
@@ -58,4 +56,4 @@ def convert_to_c_array(input_path, output_path, var_name, width, height):
 
 if __name__ == '__main__':
     # Convert standard sprite to 66x66
-    convert_to_c_array('standard.png', 'src/standard.c', 'standard', 66, 66)
+    convert_to_c_array('khasim.png', 'khasim2.c', 'khasim', 155, 155)
